@@ -1,0 +1,8 @@
+- hosts:  law_sites
+  become: yes
+  tasks:
+  - copy:
+      src: /tmp/test
+      dest: /tmp/test
+  roles:
+  - { role: users/kr2e }

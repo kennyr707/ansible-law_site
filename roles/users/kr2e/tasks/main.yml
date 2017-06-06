@@ -1,0 +1,14 @@
+- name: add user
+  user:
+    name: kr2e
+    uid: 1004
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+    password: $$5Mnopassword
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: kr2e
+    state: present
+    key: "{{ lookup('file', '/home/kr2e/.ssh/id_rsa.pub') }}"
